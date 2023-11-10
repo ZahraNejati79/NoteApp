@@ -6,7 +6,7 @@ const NoteItem = ({ note, onDelete, onComplete }) => {
   };
 
   return (
-    <div className="note-item">
+    <div className={`note-item ${note.complete ? "completed" : ""}`}>
       <div className="note-item__header">
         <div>
           <p className="title">{note.title}</p>
@@ -17,8 +17,9 @@ const NoteItem = ({ note, onDelete, onComplete }) => {
           <input
             type="checkbox"
             name={note.id}
-            checked={note.completed}
+            id={note.id}
             value={note.id}
+            checked={note.complete}
             onChange={onComplete}
           />
         </div>
@@ -29,3 +30,5 @@ const NoteItem = ({ note, onDelete, onComplete }) => {
     </div>
   );
 };
+
+export default NoteItem;

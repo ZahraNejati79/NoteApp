@@ -1,4 +1,5 @@
 import NoteItem from "./NoteItem";
+
 const NoteList = ({ notes, onDelete, onComplete }) => {
   return (
     <div>
