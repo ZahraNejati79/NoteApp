@@ -1,4 +1,4 @@
-const StatusNotes = ({ notes }) => {
+const NoteStatus = ({ notes }) => {
   const allNotes = notes.length;
   const completedNotes = notes.filter((note) => note.complete).length;
   const unCompletedNotes = allNotes - completedNotes;
@@ -18,4 +18,4 @@ const StatusNotes = ({ notes }) => {
   );
 };
 
-export default StatusNotes;
+export default NoteStatus;
