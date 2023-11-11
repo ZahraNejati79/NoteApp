@@ -101,3 +101,9 @@
 .note-item__footer {
   color: var(--text-300);
 }
+
+.delete-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: red;
+}

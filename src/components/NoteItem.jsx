@@ -1,3 +1,4 @@
+import { AiOutlineDelete } from "react-icons/ai";
 const NoteItem = ({ note, onDelete, onComplete }) => {
   const options = {
     year: "numeric",
@@ -13,7 +14,9 @@ const NoteItem = ({ note, onDelete, onComplete }) => {
           <p className="desc">{note.desc}</p>
         </div>
         <div className="actions">
-          <button onClick={() => onDelete(note.id)}>D</button>
+          <button onClick={() => onDelete(note.id)}>
+            <AiOutlineDelete className="delete-icon" />
+          </button>
           <input
             type="checkbox"
             name={note.id}
