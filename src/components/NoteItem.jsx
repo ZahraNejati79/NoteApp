@@ -1,5 +1,7 @@
 import { AiOutlineDelete } from "react-icons/ai";
-const NoteItem = ({ note, onDelete, onComplete }) => {
+import { useNotesDispatch } from "../context/NotesContext";
+const NoteItem = ({ note }) => {
+  const dispatch = useNotesDispatch();
   const options = {
     year: "numeric",
     month: "long",
@@ -14,7 +16,9 @@ const NoteItem = ({ note, onDelete, onComplete }) => {
           <p className="desc">{note.desc}</p>
         </div>
         <div className="actions">
-          <button onClick={() => onDelete(note.id)}>
+          <button
+            onClick={() => dispatch({ type: "DELETENOTE", payload: note.id })}
+          >
             <AiOutlineDelete className="delete-icon" />
           </button>
           <input
@@ -23,7 +27,10 @@ const NoteItem = ({ note, onDelete, onComplete }) => {
             id={note.id}
             value={note.id}
             checked={note.complete}
-            onChange={onComplete}
+            onChange={(e) => {
+              const noteId = Number(e.target.value);
+              return dispatch({ type: "COMPLETENOTE", payload: noteId });
+            }}
           />
         </div>
       </div>
